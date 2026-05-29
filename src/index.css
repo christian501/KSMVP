@@ -1,0 +1,214 @@
+@import '@fontsource/bebas-neue';
+@import '@fontsource/poppins/300.css';
+@import '@fontsource/poppins/400.css';
+@import '@fontsource/poppins/400-italic.css';
+@import '@fontsource/poppins/500.css';
+@import '@fontsource/poppins/600.css';
+@import '@fontsource/poppins/700.css';
+@import '@fontsource/space-mono/400.css';
+@import '@fontsource/space-mono/700.css';
+@import 'lenis/dist/lenis.css';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Backgrounds */
+  --navy:         #071038;
+  --navy-2:       #0B1A50;
+  --navy-3:       #0E2060;
+  --navy-4:       #122570;
+
+  /* Orange — primary accent */
+  --orange:       #FF6600;
+  --orange-h:     #FF7A1A;
+  --orange-pale:  rgba(255, 102, 0, 0.08);
+  --orange-glow:  rgba(255, 102, 0, 0.25);
+
+  /* Electric blue — secondary accent */
+  --blue:         #1A7BFF;
+  --blue-light:   #4DA3FF;
+  --blue-pale:    rgba(26, 123, 255, 0.10);
+  --blue-glow:    rgba(26, 123, 255, 0.30);
+
+  /* Text */
+  --white:        #FFFFFF;
+  --cream:        #F0F4FF;
+  --gray-1:       #B8CAEC;
+  --gray-2:       #6B82B0;
+
+  /* Borders */
+  --border:       #1A3070;
+  --border-l:     #24408A;
+
+  /* Semantic */
+  --success:      #22C55E;
+  --danger:       #EF4444;
+  --red-light:    #EF4444;
+
+  /* Legacy aliases — keep until all refs migrated */
+  --green:        #22C55E;
+  --green-light:  #22C55E;
+  --red:          #EF4444;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { background: var(--navy); color: var(--cream); }
+
+body {
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.65;
+  background: var(--navy);
+  color: var(--cream);
+  overflow-x: hidden;
+}
+
+.bebas-headline {
+  font-family: 'Bebas Neue', sans-serif;
+  font-weight: 400;
+  line-height: 0.93;
+  letter-spacing: 0.02em;
+}
+
+.bebas-headline-glow {
+  text-shadow:
+    0 0 80px rgba(255, 102, 0, 0.12),
+    0 0 40px rgba(255, 102, 0, 0.08);
+}
+
+.orange-glow {
+  text-shadow: 0 0 40px rgba(255, 102, 0, 0.30);
+}
+
+/* GPU compositing for animated elements */
+.parallax-slow,
+.parallax-fast,
+.pillar-fill,
+.tier-badge,
+.vault-track,
+.word-inner,
+.line-inner {
+  will-change: transform;
+}
+
+/* Quiz option hover state */
+.quiz-option {
+  border-left: 3px solid transparent;
+  transition: border-color 0.2s, background 0.2s;
+}
+.quiz-option:hover {
+  border-left-color: var(--orange);
+  background: rgba(255, 102, 0, 0.06);
+}
+.quiz-option.selected {
+  border-left-color: var(--orange);
+  background: rgba(255, 102, 0, 0.10);
+}
+
+/* Pillar bar track */
+.pillar-fill {
+  transform-origin: left center;
+  transform: scaleX(0);
+}
+
+/* Gradient text utility */
+.text-orange-gradient {
+  background: linear-gradient(90deg, var(--orange) 0%, var(--orange-h) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Thin horizontal rule */
+.rule-orange {
+  border: none;
+  border-top: 0.5px solid rgba(255, 102, 0, 0.30);
+}
+
+/* Glow effects from the brand ad graphic */
+.headline-glow {
+  text-shadow: 0 0 60px rgba(255, 102, 0, 0.15);
+}
+.score-glow {
+  text-shadow: 0 0 40px rgba(255, 102, 0, 0.30);
+}
+.blue-glow {
+  text-shadow: 0 0 40px rgba(26, 123, 255, 0.30);
+}
+
+/* ---- BorderGlow inside flex tracks ---- */
+.border-glow-card.vault-item {
+  flex-shrink: 0;
+  height: 100%;
+}
+
+/* Vault desktop horizontal track: width comes from inner card content */
+.vault-track .border-glow-card.vault-item {
+  width: 320px;
+}
+
+/* ---- Agenda horizontal-scrub responsive fallback ---- */
+@media (max-width: 900px) {
+  .agenda-track {
+    flex-direction: column !important;
+    width: 100% !important;
+    padding: 24px 20px 40px !important;
+    gap: 20px !important;
+    align-items: stretch !important;
+  }
+  .agenda-card {
+    width: 100% !important;
+  }
+  .agenda-rail,
+  .agenda-hint {
+    display: none !important;
+  }
+}
+
+/* ---- Pillar pinned-scroll responsive fallback ---- */
+@media (max-width: 900px) {
+  .pillar-scroll-grid {
+    grid-template-columns: 1fr !important;
+    gap: 0 !important;
+  }
+  .pillar-sticky-col {
+    display: none !important;
+  }
+  .pillar-text {
+    min-height: auto !important;
+    padding-top: 40px !important;
+    padding-bottom: 56px !important;
+    border-bottom: 0.5px solid var(--border);
+  }
+  .pillar-text:last-child { border-bottom: none; }
+}
+
+/* ---- Testimonial card equal heights ---- */
+.testimonial-card {
+  height: 100%;
+}
+.testimonial-card > .border-glow-inner {
+  height: 100%;
+}
+
+/* ---- Kevin cutout responsive sizing ---- */
+@media (max-width: 700px) {
+  .kevin-cutout-wrap {
+    padding-top: 90px !important;
+  }
+  .kevin-cutout-img {
+    height: 360px !important;
+  }
+}
+
+/* Seat counter pulse */
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%      { opacity: 0.5; transform: scale(1.3); }
+}
+
+/* Smooth scroll — Lenis handles this, disable native */
+html { scroll-behavior: auto; }
