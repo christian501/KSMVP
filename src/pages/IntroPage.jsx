@@ -23,7 +23,7 @@ const IMG = {
   pillarSocial:  'https://images.unsplash.com/photo-1611162616305-c69b3fa7fbe0?auto=format&fit=crop&w=1400&q=80',
   pillarRet:     'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1400&q=80',
   agendaBg:      'https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=2000&q=80',
-  kevin:         '/kevin.png',
+  kevin:         '/kevin2.png',
   test1:         'https://images.unsplash.com/photo-1494790108377-fcf48f1e2a40?auto=format&fit=crop&w=400&q=80',
   test2:         'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=400&q=80',
   test3:         'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=400&q=80',
